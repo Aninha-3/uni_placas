@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 
 function App() {
@@ -11,15 +8,18 @@ function App() {
     <>
       <section id="center">
         <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+          
         </div>
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
+          <h1>Consulte e monitore placas de <br/> veiculos em segundos ...</h1>
+
+        <div className="input-container">
+         <input type="text" placeholder="Digite a placa do veiculo" />
+         <button type="button" className="search-button">
+          <a href="/login">Buscar</a>
+          </button>
+        </div>
+
         </div>
         <button
           type="button"
@@ -42,13 +42,12 @@ function App() {
           <ul>
             <li>
               <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
                 Explore Vite
               </a>
             </li>
             <li>
               <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
+               
                 Learn more
               </a>
             </li>
