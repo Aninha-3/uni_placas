@@ -19,7 +19,7 @@
 
 .hero {
   position: relative;
-
+  padding: 0 20px;
   .base,
   .framework,
   .vite {
