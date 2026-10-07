@@ -1,13 +1,80 @@
+body:has(.cadastro-page) {
+  background-color: white;
+}
 .cadastro-page {
   width: min(100% - 32px, 480px);
   margin: 48px auto;
   text-align: left;
+  
+}
+
+.cadastro-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-bottom: 40px;
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  padding: 0 32px;
+  box-sizing: border-box;
+  transform: translateX(-50%);
+}
+
+.cadastro-brand {
+  display: block;
+  flex: 0 0 150px;
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+.cadastro-logo {
+  display: block;
+  width: 150px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.cadastro-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  margin-left: auto;
+}
+
+.cadastro-nav a {
+  color: #207374;
+  text-decoration: none;
+}
+
+.cadastro-intro {
+  margin: -14px 0 24px;
+  text-align: center;
+  color: #005152;
+}
+
+@media (max-width: 520px) {
+  .cadastro-header {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 32px;
+    padding: 0 16px;
+  }
+
+  .cadastro-nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-left: auto;
+  }
 }
 
 .cadastro-page h1 {
   margin: 0 0 24px;
   font-size: 36px;
   text-align: center;
+  color: #106263
 }
 
 .cadastro-page form {
@@ -17,7 +84,7 @@
 
 .cadastro-page label {
   margin-top: 8px;
-  color: var(--text-h);
+  color: #005152;
   font-size: 15px;
 }
 
@@ -26,9 +93,9 @@
   width: 100%;
   min-height: 44px;
   padding: 10px 12px;
-  border: 1px solid var(--border);
+  border: 1px solid #2f8485;
   border-radius: 6px;
-  background: var(--bg);
+  background: white;
   color: var(--text-h);
   font: inherit;
 }
@@ -38,7 +105,7 @@
   margin-top: 16px;
   border: 0;
   border-radius: 6px;
-  background: var(--accent);
+  background: #005152;
   color: white;
   font: inherit;
   cursor: pointer;
