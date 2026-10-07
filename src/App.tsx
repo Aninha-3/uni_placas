@@ -1,7 +1,12 @@
 import 'react'
 import './App.css'
+import Cadastro from './pages/cadastro'
 
 function App() {
+
+  if (window.location.pathname === '/cadastro') {
+    return <Cadastro />
+  }
 
   return (
     <>
@@ -13,6 +18,7 @@ function App() {
           <li><a href="#spacer">Sobre</a></li>
           <li><a href="#spacer">Contato</a></li>
           <li><a href="/login">Login</a></li>
+          <li><a href="/cadastro">Cadastro</a></li>
         </ul>
       </nav>
       <section id="inicialHome">

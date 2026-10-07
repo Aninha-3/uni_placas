@@ -1,0 +1,45 @@
+.cadastro-page {
+  width: min(100% - 32px, 480px);
+  margin: 48px auto;
+  text-align: left;
+}
+
+.cadastro-page h1 {
+  margin: 0 0 24px;
+  font-size: 36px;
+  text-align: center;
+}
+
+.cadastro-page form {
+  display: grid;
+  gap: 10px;
+}
+
+.cadastro-page label {
+  margin-top: 8px;
+  color: var(--text-h);
+  font-size: 15px;
+}
+
+.cadastro-page input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.cadastro-page button {
+  min-height: 46px;
+  margin-top: 16px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}

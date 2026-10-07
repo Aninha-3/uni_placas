@@ -1,16 +1,16 @@
-import './cadastro.css';
+import '../css/cadastro.css';
 function Cadastro(){
     return (
-        <main>
+        <main className="cadastro-page">
             <h1>Criar conta</h1>
             <form>
                 <label htmlFor="nome">nome completo</label>
                 <input id="nome" name="nome" type="text" />
 
-                <label htmlFor="senha">cpf</label>
-                <input id="cpf" name="cpf" type="number" />
+                <label htmlFor="cpf">CPF</label>
+                <input id="cpf" name="cpf" type="text" inputMode="numeric" />
 
-                <label htmlFor="senha">senha</label>
+                <label htmlFor="senha">Senha</label>
                 <input id="senha" name="senha" type="password" />
 
                 <label htmlFor="email">E-mail</label>
