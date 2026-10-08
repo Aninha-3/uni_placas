@@ -1,4 +1,5 @@
 import '../css/home.css'
+//import { Footer } from '../components/footer'
 
 function Home() {
   return (
@@ -72,6 +73,8 @@ function Home() {
           </p>
         </article>
       </section>
+
+    
     </main>
   )
 }
