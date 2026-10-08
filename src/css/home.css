@@ -68,6 +68,7 @@ body:has(.home-page) {
   width: 50%;
   margin: 150px 0 0;
   text-align: left;
+  transform: translateX(-45%);
 }
 
 .home-eyebrow {
@@ -234,7 +235,7 @@ body:has(.home-page) {
   left: 50%;
   width: 100%;
   margin: 80px 0 0;
-  transform: translateX(-820px);
+  transform: translateX(-500px);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
