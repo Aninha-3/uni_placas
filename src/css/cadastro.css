@@ -110,3 +110,6 @@ body:has(.cadastro-page) {
   font: inherit;
   cursor: pointer;
 }
+.cadastro-page button:hover {
+  background: #207374;
+}

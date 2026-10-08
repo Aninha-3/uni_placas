@@ -4,7 +4,7 @@ function CabecalhoCadastro() {
   return (
     <header className="cadastro-header">
       <a className="cadastro-brand" href="/" aria-label="Página inicial">
-        <img className="cadastro-logo" src="/logo.png" alt="Logo UniPlacas" />
+        <img className="cadastro-logo" src="src/visual/logo.jpeg" alt="Logo UniPlacas" />
       </a>
       <nav className="cadastro-nav" aria-label="Navegação da página">
         <a href="/">Home</a>
