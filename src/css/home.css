@@ -64,10 +64,9 @@ body:has(.home-page) {
 }
 
 .home-content {
-  width: min(720px, 100%);
+  width: 100%;
   margin: 150px auto 0;
   text-align: left;
-  transform: translateX(-50%);
 }
 
 .home-eyebrow {
@@ -209,9 +208,9 @@ body:has(.home-page) {
 .home-services {
   position: relative;
   left: 50%;
-  width: min(1280px, calc(50% + 720px));
+  width: 100%;
   margin: 80px 0 0;
-  transform: translateX(-720px);
+  transform: translateX(-820px);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
