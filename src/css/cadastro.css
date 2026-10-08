@@ -1,6 +1,4 @@
-body:has(.cadastro-page) {
-  background-color: white;
-}
+
 .cadastro-page {
   width: min(100% - 32px, 480px);
   margin: 48px auto;
