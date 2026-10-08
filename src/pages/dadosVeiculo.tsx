@@ -1,4 +1,6 @@
 import '..//css/dadosVeiculos.css'
+import '../components/footer'
+import Footer from '../components/footer'
 
 ///Header LOGINN  
 
@@ -39,6 +41,7 @@ function DadosVeiculo() {
 
       <button className="btn_consultar" onClick={() => window.history.back()}>Nova Consulta de Placa</button>
 
+    <Footer />
     </>
   )
 }

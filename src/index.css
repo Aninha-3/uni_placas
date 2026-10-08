@@ -1,16 +1,18 @@
 :root {
-  --text: #6b6375;
+  --primary: #005152;
+  --dark: #106263;
+  --secondary: #207374;
+  --medium: #2F8485;
+  --light: #3F9596;
+  --background: #F4F8F8;
+  --white: #FFFFFF;
+  --text: #173536;
+  --muted: #6D7D7D;
+  --border: #DCE8E8;
   --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
   --code-bg: #f4f3ec;
-  --accent: #263b84;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(95, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;

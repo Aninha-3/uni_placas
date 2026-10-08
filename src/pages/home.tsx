@@ -1,5 +1,6 @@
 import '../css/home.css'
-//import { Footer } from '../components/footer'
+import Footer from '../components/footer'
+import fundo from '../Visual/video/fundo.mp4'
 
 function Home() {
   return (
@@ -43,6 +44,11 @@ function Home() {
           <button type="submit">Consultar</button>
         </form>
       </section>
+      
+      <video className="home-video" autoPlay loop muted playsInline>
+        <source src={fundo} type="video/mp4" />
+        Seu navegador não suporta vídeos em HTML5.
+      </video>
 
       <section className="home-services" aria-labelledby="services-title">
         <h1 id="services-title">Nossos serviços</h1>
@@ -74,6 +80,7 @@ function Home() {
         </article>
       </section>
 
+    <Footer />
     
     </main>
   )

@@ -12,6 +12,7 @@ body:has(.home-page) {
 }
 
 .home-page {
+  position: relative;
   min-height: 100vh;
   padding: 24px 7vw;
   box-sizing: border-box;
@@ -64,8 +65,8 @@ body:has(.home-page) {
 }
 
 .home-content {
-  width: 100%;
-  margin: 150px auto 0;
+  width: 50%;
+  margin: 150px 0 0;
   text-align: left;
 }
 
@@ -159,6 +160,19 @@ body:has(.home-page) {
   border: 0;
 }
 
+/*VIDEOO*/
+
+.home-video {
+  position: absolute;
+  top: 260px;
+  right: -10vw;
+  width: 70%;
+  max-width: 700px;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+}
+
 
 @media (max-width: 600px) {
   .home-page {
@@ -176,7 +190,17 @@ body:has(.home-page) {
   }
 
   .home-content {
+    width: 100%;
     margin-top: 100px;
+  }
+
+  .home-video {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin-top: 32px;
   }
 
   .home-search {
