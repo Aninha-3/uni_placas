@@ -18,20 +18,21 @@
   --mono: ui-monospace, Consolas, monospace;
 }
 
+
+
+body {
+  margin: 0;
+  box-sizing: border-box; 
+}
 #root {
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  min-height: 100svh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  box-sizing: border-box; 
 }
 
 
@@ -67,18 +68,3 @@ p {
 
 
 */
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
-}
