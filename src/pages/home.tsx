@@ -5,23 +5,8 @@ import fundo from '../Visual/video/fundo.mp4'
 function Home() {
   return (
     <main className="home-page">
-      <header className="home-header">
-        <a className="home-brand" href="/">
-          <img
-            className="cadastro-logo"
-            src="src/visual/logo.jpeg"
-            alt="Logo UniPlacas"
-          />
-        </a>
-
-        <nav className="home-nav" aria-label="Navegação principal">
-          <a href="#sobre">Sobre</a>
-          <a href="#contato">Contato</a>
-          <a href="/login">Login</a>
-          <a href="/cadastro">Cadastro</a>
-        </nav>
-      </header>
-
+     {/* <Navbar />*/}
+ 
       <section className="home-content" aria-labelledby="home-title">
         <p className="home-eyebrow">SERVIÇOS DE UTILIDADE PÚBLICA</p>
         <h1 id="home-title">

@@ -47,22 +47,6 @@ body:has(.home-page) {
   object-fit: contain;
 }
 
-.home-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 18px;
-  margin-left: auto;
-}
-
-.home-nav a {
-  color: #207374;
-  text-decoration: none;
-}
-
-.home-nav a:hover {
-  color: #005152;
-}
 
 .home-content {
   width: 50%;
