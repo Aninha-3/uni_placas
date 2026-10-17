@@ -1,11 +1,12 @@
 import '../css/home.css'
 import Footer from '../components/footer'
+import Navbar from '../components/navbar'
 import fundo from '../Visual/video/fundo.mp4'
 
 function Home() {
   return (
     <main className="home-page">
-     {/* <Navbar />*/}
+     <Navbar />
  
       <section className="home-content" aria-labelledby="home-title">
         <p className="home-eyebrow">SERVIÇOS DE UTILIDADE PÚBLICA</p>

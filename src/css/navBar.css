@@ -1,9 +1,15 @@
-
+.home-services .service-card img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  max-width: 100%;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
 .home-nav {
-  display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 18px;
+  gap: 28px;
   margin-left: auto;
 }
 
