@@ -1,23 +1,75 @@
-.home-services .service-card img {
-  display: block;
-  width: 48px;
-  height: 48px;
-  max-width: 100%;
-  object-fit: contain;
-  margin-bottom: 20px;
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px 5%;
+  background: linear-gradient(
+    15deg,
+    #106263 0%,
+    #207374 95%,
+    #6d7d7d 100%
+  );
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  position: relative;
+  z-index: 100;
+
+  font-family: Arial, sans-serif;
 }
+
+/* LOGO */
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 12px;
+  font-family:system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: #F4F3EC ;
+}
+
 .home-nav {
+  display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 28px;
-  margin-left: auto;
+  gap: 32px;
+  margin-left: 24px;
 }
 
 .home-nav a {
-  color: #207374;
+  display: flex;
+  justify-content: flex-end;
+  color: #f8fafc;
   text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 20px 0;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .home-nav a:hover {
-  color: #005152;
+  color: #c0cbcb;
+}
+
+
+.home-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 0;
+  height: 2px; 
+  background:#207374;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.home-nav a:hover::after {
+  width: 100%;
 }

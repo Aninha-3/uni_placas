@@ -1,23 +1,10 @@
 import '../css/cadastro.css';
-
-function CabecalhoCadastro() {
-  return (
-    <header className="cadastro-header">
-      <a className="cadastro-brand" href="/" aria-label="Página inicial">
-        <img className="cadastro-logo" src="src/visual/logo.jpeg" alt="Logo UniPlacas" />
-      </a>
-      <nav className="cadastro-nav" aria-label="Navegação da página">
-        <a href="/">Home</a>
-        <a href="/login">Já tem uma conta? Entrar</a>
-      </nav>
-    </header>
-  );
-}
+import navbar from '../components/navbar';
 
 function Cadastro() {
   return (
     <main className="cadastro-page">
-      <CabecalhoCadastro />
+      {navbar()}
       <h1>Criar conta</h1>
       <p className="cadastro-intro">Crie uma nova conta de usuário.</p>
       <form>

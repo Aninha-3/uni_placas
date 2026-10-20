@@ -2,8 +2,6 @@ import '..//css/dadosVeiculos.css'
 import '../components/footer'
 import Footer from '../components/footer'
 
-///Header LOGINN  
-
 function DadosVeiculo() {
   return (
     <>
