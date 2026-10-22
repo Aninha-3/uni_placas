@@ -1,11 +1,11 @@
 import '../css/cadastro.css';
-import navbar from '../components/navbar';
+import NavBar from '../components/navbar';
 
 function Cadastro() {
   return (
     <main className="cadastro-page">
-      {navbar()}
-      <h1>Criar conta</h1>
+      < NavBar />  
+      <h2>Criar conta</h2>
       <p className="cadastro-intro">Crie uma nova conta de usuário.</p>
       <form>
         <label htmlFor="nome">Nome completo</label>
