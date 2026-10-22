@@ -1,35 +1,73 @@
 import '../css/home.css'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Footer from '../components/footer'
 import Navbar from '../components/navbar'
 import fundo from '../Visual/video/fundo.mp4'
 
 function Home() {
+  
+  const [placa, setPlaca] = useState('');
+
+  const navigate = useNavigate();
+
+  function handleConsultar(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const placaFormatada = placa
+      .replace(/[^a-zA-Z0-9]/g, '')
+      .toUpperCase();
+
+    if (!placaFormatada) {
+      alert('Digite a placa do veículo.');
+      return;
+    }
+
+    navigate(`/veiculo/${placaFormatada}`);
+  
+   }
+
   return (
     <main className="home-page">
      <Navbar />
  
-      <section className="home-content" aria-labelledby="home-title">
-        <p className="home-eyebrow">SERVIÇOS DE UTILIDADE PÚBLICA</p>
-        <h1 id="home-title">
-          Consulte e monitore placas de veículos em segundos
-        </h1>
+       <section
+      className="home-content"
+      aria-labelledby="home-title"
+    >
+      <p className="home-eyebrow">
+        SERVIÇOS DE UTILIDADE PÚBLICA
+      </p>
 
-        <form
-          className="home-search"
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <label className="sr-only" htmlFor="placa">
-            Digite a placa do veículo
-          </label>
-          <input
-            id="placa"
-            name="placa"
-            type="text"
-            placeholder="Digite a placa do veículo"
-          />
-          <button type="submit">Consultar</button>
-        </form>
-      </section>
+      <h1 id="home-title">
+        Consulte e monitore placas de veículos em segundos
+      </h1>
+
+      <form
+        className="home-search"
+        onSubmit={handleConsultar}
+      >
+        <label className="sr-only" htmlFor="placa">
+          Digite a placa do veículo
+        </label>
+
+        <input
+          id="placa"
+          name="placa"
+          type="text"
+          placeholder="Digite a placa do veículo"
+          value={placa}
+          onChange={(event) =>
+            setPlaca(event.target.value)
+          }
+          maxLength={8}
+        />
+
+        <button type="submit">
+          Consultar
+        </button>
+      </form>
+    </section>
       
       <video className="home-video" autoPlay loop muted playsInline>
         <source src={fundo} type="video/mp4" />

@@ -1,14 +1,13 @@
 import 'react-router-dom'
-
-
-
-
+import '../css/termosPriv.css'
+import NavBar from '../components/navbar'
+import Footer from '../components/footer'
 
 function Termos() {
   return (
     <main>
+      < NavBar />
       <h1>Termos de Uso e Política de Privacidade</h1>
-
       <section>
         <h2>1. Sobre a UniPlacas</h2>
         <p>
@@ -81,6 +80,8 @@ function Termos() {
           alterações durante o desenvolvimento do projeto.
         </p>
       </section>
+
+      < Footer /> 
     </main>
   );
 }
