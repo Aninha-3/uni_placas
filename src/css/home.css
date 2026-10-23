@@ -5,13 +5,13 @@ body:has(.home-page) {
 .home-page {
   position: relative;
   min-height: 100vh;
-  padding: 24px 7vw;
+  padding: 0 7vw 24px;
   box-sizing: border-box;
   background: #fff;
   color: #005152;
 }
 
-.home-header {
+.home-page .home-header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -25,13 +25,13 @@ body:has(.home-page) {
   transform: translateX(-50%);
 }
 
-.home-brand {
+.home-page .home-brand {
   display: block;
   flex: 0 0 150px;
   text-decoration: none;
 }
 
-.home-brand img {
+.home-page .home-brand img {
   display: block;
   width: 150px;
   height: 48px;
@@ -155,12 +155,12 @@ body:has(.home-page) {
     padding: 20px;
   }
 
-  .home-header {
+  .home-page .home-header {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  .home-nav {
+  .home-page .home-nav {
     flex-wrap: wrap;
     gap: 12px 18px;
   }
