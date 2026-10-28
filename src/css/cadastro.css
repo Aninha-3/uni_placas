@@ -1,92 +1,58 @@
-
 .cadastro-page {
-  width: min(100% - 32px, 480px);
-  margin: 48px auto;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
   text-align: left;
-  
 }
 
-.cadastro-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
-  margin-bottom: 40px;
+/* Mantém a navbar do cadastro no posicionamento de tela cheia usado antes. */
+.cadastro-page .home-header {
   position: relative;
   left: 50%;
   width: 100vw;
+  margin-bottom: 40px;
   padding: 0 32px;
-  box-sizing: border-box;
+  justify-content: flex-start;
+  gap: 16px;
   transform: translateX(-50%);
 }
 
-.cadastro-brand {
+.cadastro-page .home-brand {
   display: block;
   flex: 0 0 150px;
-  color: var(--text-h);
   text-decoration: none;
 }
 
-.cadastro-logo {
-  display: block;
-  width: 150px;
-  height: 48px;
-  object-fit: contain;
+.cadastro-content {
+  width: min(100% - 32px, 480px);
+  margin: 48px auto;
 }
 
-.cadastro-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 18px;
-  margin-left: auto;
-}
-
-.cadastro-nav a {
-  color: #207374;
-  text-decoration: none;
+.cadastro-content h1 {
+  margin: 0 0 16px;
+  color: #106263;
+  font-size: 36px;
+  text-align: center;
 }
 
 .cadastro-intro {
-  margin: -14px 0 24px;
-  text-align: center;
-  color: #005152;
-}
-
-@media (max-width: 520px) {
-  .cadastro-header {
-    align-items: flex-start;
-    flex-direction: column;
-    margin-bottom: 32px;
-    padding: 0 16px;
-  }
-
-  .cadastro-nav {
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-left: auto;
-  }
-}
-
-.cadastro-page h1 {
   margin: 0 0 24px;
-  font-size: 36px;
+  color: #005152;
   text-align: center;
-  color: #106263
 }
 
-.cadastro-page form {
+.cadastro-content form {
   display: grid;
   gap: 10px;
 }
 
-.cadastro-page label {
+.cadastro-content label {
   margin-top: 8px;
   color: #005152;
   font-size: 15px;
 }
 
-.cadastro-page input {
+.cadastro-content input {
   box-sizing: border-box;
   width: 100%;
   min-height: 44px;
@@ -98,7 +64,7 @@
   font: inherit;
 }
 
-.cadastro-page button {
+.cadastro-content button {
   min-height: 46px;
   margin-top: 16px;
   border: 0;
@@ -108,6 +74,27 @@
   font: inherit;
   cursor: pointer;
 }
-.cadastro-page button:hover {
+
+.cadastro-content button:hover {
   background: #207374;
+}
+
+@media (max-width: 600px) {
+  .cadastro-page .home-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cadastro-page .home-nav {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  .cadastro-content {
+    margin-top: 32px;
+  }
+
+  .cadastro-content h1 {
+    font-size: 30px;
+  }
 }

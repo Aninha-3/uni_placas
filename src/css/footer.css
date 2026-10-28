@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  max-width:  1000;
 
   width: 100%;
   box-sizing: border-box;
@@ -14,6 +15,7 @@
   background-color: #102c46;
   color: #ffffff;
   text-align: left;
+
 }
 
 
@@ -104,13 +106,15 @@
 }
 
 
-@media (max-width: 768px) {
+/*@media (max-width: 100% ) {
   .footerBase {
     padding: 20px;
+    width: 100%;
   }
 
   .footerBase .footerConteudo {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-}
+}*/
+

@@ -1,5 +1,5 @@
 import "../css/footer.css";
-import logo from "../Visual/imgLogoP.jpeg";
+import logo from "../Visual/logo.jpeg";
 
 function Footer() {
   return (
@@ -28,9 +28,7 @@ function Footer() {
         <div className="footerLinks">
           <h3>Suporte</h3>
           <a href="/sac">Fale conosco</a>
-          <span>
-            Termos de Uso e Política de Privacidade
-          </span>
+          <a href= "/termos.tsx"> Termos de uso e Politica de privacidade</a>
         </div>
 
       </div>
