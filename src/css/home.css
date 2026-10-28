@@ -194,6 +194,14 @@ body:has(.home-page) {
   }
 }
 
+.home-erro {
+  margin-top: 8px;
+  margin-left: 2rem;
+  color: #bd3c3c;
+  font-size: 0.9rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.173);
+}
+
 
 .home-services h1{
   color: #005152;

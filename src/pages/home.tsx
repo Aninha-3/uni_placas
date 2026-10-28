@@ -6,69 +6,71 @@ import Navbar from '../components/navbar'
 import fundo from '../Visual/video/fundo.mp4'
 
 function Home() {
-  
-  const [placa, setPlaca] = useState('');
+  const [placa, setPlaca] = useState('')
+  const [erro, setErro] = useState('')
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   function handleConsultar(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+    event.preventDefault()
 
     const placaFormatada = placa
       .replace(/[^a-zA-Z0-9]/g, '')
-      .toUpperCase();
+      .toUpperCase()
 
-    if (!placaFormatada) {
-      alert('Digite a placa do veículo.');
-      return;
+    // ABC1234 (padrão antigo) ou ABC1D23 (Mercosul)
+    const placaValida = /^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/.test(placaFormatada)
+
+    if (!placaValida) {
+      setErro('Placa inválida. Use o formato ABC-1234 ou ABC1D23.')
+      return
     }
 
-    navigate(`/veiculo/${placaFormatada}`);
-  
-   }
+    setErro('')
+    navigate(`/veiculo/${placaFormatada}`)
+  }
 
   return (
     <main className="home-page">
-     <Navbar />
- 
-       <section
-      className="home-content"
-      aria-labelledby="home-title"
-    >
-      <p className="home-eyebrow">
-        SERVIÇOS DE UTILIDADE PÚBLICA
-      </p>
+      <Navbar />
 
-      <h1 id="home-title">
-        Consulte e monitore placas de veículos em segundos
-      </h1>
+      <section className="home-content" aria-labelledby="home-title">
+        <p className="home-eyebrow">SERVIÇOS DE UTILIDADE PÚBLICA</p>
 
-      <form
-        className="home-search"
-        onSubmit={handleConsultar}
-      >
-        <label className="sr-only" htmlFor="placa">
-          Digite a placa do veículo
-        </label>
+        <h1 id="home-title">
+          Consulte e monitore placas de veículos em segundos
+        </h1>
 
-        <input
-          id="placa"
-          name="placa"
-          type="text"
-          placeholder="Digite a placa do veículo"
-          value={placa}
-          onChange={(event) =>
-            setPlaca(event.target.value)
-          }
-          maxLength={8}
-        />
+        <form className="home-search" onSubmit={handleConsultar}>
+          <label className="sr-only" htmlFor="placa">
+            Digite a placa do veículo
+          </label>
 
-        <button type="submit">
-          Consultar
-        </button>
-      </form>
-    </section>
-      
+          <input
+            id="placa"
+            name="placa"
+            type="text"
+            placeholder="Digite a placa do veículo"
+            value={placa}
+            onChange={(event) => {
+              setPlaca(event.target.value)
+              if (erro) setErro('')
+            }}
+            maxLength={8}
+            aria-invalid={!!erro}
+            aria-describedby={erro ? 'placa-erro' : undefined}
+          />
+
+          <button type="submit">Consultar</button>
+        </form>
+
+        {erro && (
+          <p id="placa-erro" className="home-erro" role="alert">
+            {erro}
+          </p>
+        )}
+      </section>
+
       <video className="home-video" autoPlay loop muted playsInline>
         <source src={fundo} type="video/mp4" />
         Seu navegador não suporta vídeos em HTML5.
@@ -104,8 +106,7 @@ function Home() {
         </article>
       </section>
 
-    <Footer />
-    
+      <Footer />
     </main>
   )
 }

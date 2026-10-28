@@ -6,7 +6,6 @@ import Footer from '../components/footer'
 
 import { consultarVeiculo } from '../services/veiculosService'
 import { salvarConsulta } from '../services/historicoService'
-
 import type { Veiculo } from '../types/veiculo'
 
 import '../css/dadosVeiculos.css'

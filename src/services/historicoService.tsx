@@ -1,26 +1,27 @@
-import type { ConsultaHistorico } from '../types/veiculo'
+// src/services/historicoService.ts
 
-const CHAVE_HISTORICO = 'uniplacas_historico'
-
-export function obterHistorico(): ConsultaHistorico[] {
-  try {
-    const dados = localStorage.getItem(CHAVE_HISTORICO)
-
-    return dados ? JSON.parse(dados) as ConsultaHistorico[] : []
-  } catch {
-    return []
-  }
+export interface Consulta {
+  id: string
+  placa: string
+  veiculo: string
+  data: string
+  situacao: string
 }
 
-export function salvarConsulta(
-  consulta: ConsultaHistorico,
-): void {
-  const historico = obterHistorico()
+const CHAVE = 'historico-consultas'
 
-  const atualizado = [consulta, ...historico].slice(0, 100)
+export function listarConsultas(): Consulta[] {
+  const salvo = localStorage.getItem(CHAVE)
+  return salvo ? JSON.parse(salvo) : []
+}
 
-  localStorage.setItem(
-    CHAVE_HISTORICO,
-    JSON.stringify(atualizado),
-  )
+export function salvarConsulta(consulta: Consulta) {
+  const lista = listarConsultas()
+  lista.unshift(consulta)
+  localStorage.setItem(CHAVE, JSON.stringify(lista))
+}
+
+export function excluirConsulta(id: string) {
+  const lista = listarConsultas().filter((c) => c.id !== id)
+  localStorage.setItem(CHAVE, JSON.stringify(lista))
 }

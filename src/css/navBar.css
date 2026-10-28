@@ -74,3 +74,7 @@
 .home-nav a:hover::after {
   width: 100%;
 }
+
+.btnSair {
+  display: flex-end;
+}
