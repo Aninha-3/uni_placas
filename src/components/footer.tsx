@@ -1,5 +1,4 @@
 import "../css/footer.css";
-import logo from "../Visual/logo.jpeg";
 
 function Footer() {
   return (
@@ -9,11 +8,6 @@ function Footer() {
 
         <div className="footerSobre">
           <div className="footerMarca">
-            <img
-              className="logo"
-              src={logo}
-              alt="Logo UniPlacas"
-            />
             <h2>UniPlacas</h2>
           </div>
 

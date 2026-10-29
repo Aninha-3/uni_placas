@@ -1,5 +1,3 @@
-/* codigo css footer */
-
 .footerBase {
   display: flex;
   flex-direction: column;
@@ -12,8 +10,7 @@
   margin-top: 100px;
   padding: 20px 30px 12px;
 
-  background-color: #102c46;
-  color: #ffffff;
+  background-color: #005152;
   text-align: left;
 
 }
@@ -106,7 +103,7 @@
 }
 
 
-/*@media (max-width: 100% ) {
+@media (max-width: 100% ) {
   .footerBase {
     padding: 20px;
     width: 100%;
@@ -116,5 +113,4 @@
     grid-template-columns: 1fr;
     gap: 15px;
   }
-}*/
-
+}

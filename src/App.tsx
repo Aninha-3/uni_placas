@@ -7,6 +7,7 @@ import Termos from './pages/termos'
 import PrivateRoute from './components/privateRoutes'
 import { Route, Routes } from 'react-router-dom'
 import Historico from './pages/historico'
+import Sobre from "./pages/sobre";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/termos" element={<Termos />} />
-      <Route path="/sobre" element={<Home />} />
+      <Route path="/sobre" element={<Sobre />} />
 
       {/* Só logado */}
       <Route element={<PrivateRoute />}>
