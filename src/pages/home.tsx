@@ -34,48 +34,52 @@ function Home() {
     <main className="home-page">
       <Navbar />
 
-      <section className="home-content" aria-labelledby="home-title">
-        <p className="home-eyebrow">SERVIÇOS DE UTILIDADE PÚBLICA</p>
+      {/* HERO: texto à esquerda, vídeo à direita */}
+      <div className="home-hero">
+        <section className="home-content" aria-labelledby="home-title">
+          <p className="home-eyebrow">SERVIÇOS DE UTILIDADE PÚBLICA</p>
 
-        <h1 id="home-title">
-          Consulte e monitore placas de veículos em segundos
-        </h1>
+          <h1 id="home-title">
+            Consulte e monitore placas de veículos em segundos
+          </h1>
 
-        <form className="home-search" onSubmit={handleConsultar}>
-          <label className="sr-only" htmlFor="placa">
-            Digite a placa do veículo
-          </label>
+          <form className="home-search" onSubmit={handleConsultar}>
+            <label className="sr-only" htmlFor="placa">
+              Digite a placa do veículo
+            </label>
 
-          <input
-            id="placa"
-            name="placa"
-            type="text"
-            placeholder="Digite a placa do veículo"
-            value={placa}
-            onChange={(event) => {
-              setPlaca(event.target.value)
-              if (erro) setErro('')
-            }}
-            maxLength={8}
-            aria-invalid={!!erro}
-            aria-describedby={erro ? 'placa-erro' : undefined}
-          />
+            <input
+              id="placa"
+              name="placa"
+              type="text"
+              placeholder="Digite a placa do veículo"
+              value={placa}
+              onChange={(event) => {
+                setPlaca(event.target.value)
+                if (erro) setErro('')
+              }}
+              maxLength={8}
+              aria-invalid={!!erro}
+              aria-describedby={erro ? 'placa-erro' : undefined}
+            />
 
-          <button type="submit">Consultar</button>
-        </form>
+            <button type="submit">Consultar</button>
+          </form>
 
-        {erro && (
-          <p id="placa-erro" className="home-erro" role="alert">
-            {erro}
-          </p>
-        )}
-      </section>
+          {erro && (
+            <p id="placa-erro" className="home-erro" role="alert">
+              {erro}
+            </p>
+          )}
+        </section>
 
-      <video className="home-video" autoPlay loop muted playsInline>
-        <source src={fundo} type="video/mp4" />
-        Seu navegador não suporta vídeos em HTML5.
-      </video>
+        <video className="home-video" autoPlay loop muted playsInline>
+          <source src={fundo} type="video/mp4" />
+          Seu navegador não suporta vídeos em HTML5.
+        </video>
+      </div>
 
+      {/* SERVIÇOS */}
       <section className="home-services" aria-labelledby="services-title">
         <h1 id="services-title">Nossos serviços</h1>
 

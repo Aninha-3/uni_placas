@@ -1,4 +1,3 @@
-import './App.css'
 import Cadastro from './pages/cadastro'
 import DadosVeiculo from './pages/dadosVeiculo'
 import Login from '../src/pages/Login'
