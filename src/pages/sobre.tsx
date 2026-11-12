@@ -36,42 +36,17 @@ function Sobre() {
       </section>
 
       <section className="sobre-cards" aria-label="Nossos princípios">
-        <article className="sobre-card">
-          <h2>Missão</h2>
+          <h2> Objetivo </h2>
 
           <p>
-            Facilitar o acesso e a compreensão de informações
-            veiculares, oferecendo uma experiência clara e acessível
+            Facilitar o acesso e a compreensão de informações veiculares, oferecendo uma experiência clara e acessível
             e demonstrando alternativas de orientação financeira
-            adequadas à realidade dos condutores.
-          </p>
-        </article>
-
-        <article className="sobre-card">
-          <h2>Visão</h2>
-
-          <p>
+            adequadas à realidade dos condutores
             Tornar-se referência em consultoria e facilitação de
             serviços veiculares, com reconhecimento pela
             transparência, inovação e responsabilidade no
             atendimento aos condutores.
           </p>
-        </article>
-
-        <article className="sobre-card">
-          <h2>Valores</h2>
-
-          <ul>
-            <li>Acessibilidade</li>
-            <li>Transparência</li>
-            <li>Responsabilidade</li>
-            <li>Confiança</li>
-            <li>Empatia</li>
-            <li>Praticidade</li>
-            <li>Inovação</li>
-            <li>Segurança e privacidade</li>
-          </ul>
-        </article>
       </section>
 
       <aside className="sobre-aviso">
