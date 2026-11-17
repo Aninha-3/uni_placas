@@ -1,13 +1,32 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { ref, get, set, update, serverTimestamp } from 'firebase/database';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
+import { auth, db } from '../Firebase/firebase';
 import { consultarVeiculo } from '../services/veiculosService';
 import { consultarPrecoFipe, type PrecoFipe } from '../services/fipeService';
 import { salvarConsulta } from '../services/historicoService';
 import type { Veiculo } from '../types/veiculo';
 import PlanosPagamento from '../components/planosPagamento';
 import '../css/dadosVeiculos.css';
+
+// Retorna o veículo com licenciamento em dia e todas as multas pagas
+function aplicarRegularizacao(veiculo: Veiculo): Veiculo {
+  return {
+    ...veiculo,
+    licenciamento: 'Em dia',
+    multas: veiculo.multas.map((m) => ({ ...m, situacao: 'Paga' })),
+  };
+}
+
+// Texto da situação salvo no histórico. Considera licenciamento E multas,
+// para não mostrar "Em dia" quando ainda existem multas em aberto.
+function situacaoDoVeiculo(veiculo: Veiculo): string {
+  if (veiculo.licenciamento === 'Atrasado') return 'Licenciamento Atrasado';
+  if (veiculo.multas.some((m) => m.situacao === 'Em aberto')) return 'Multas em aberto';
+  return 'Licenciamento Em dia';
+}
 
 export default function DadosVeiculo() {
   const { placa } = useParams<{ placa: string }>();
@@ -16,6 +35,7 @@ export default function DadosVeiculo() {
   const [loading, setLoading] = useState(true);
   const [erro, setErro] = useState('');
   const [fipeLoading, setFipeLoading] = useState(false);
+  const [erroPagamento, setErroPagamento] = useState('');
 
   useEffect(() => {
     if (!placa) return;
@@ -29,13 +49,24 @@ export default function DadosVeiculo() {
       setFipe(null);
 
       try {
-        const dadosDetran = await consultarVeiculo(placaAtual);
+        const dadosConsulta = await consultarVeiculo(placaAtual);
         if (controller.signal.aborted) return;
 
-        if (!dadosDetran) {
+        if (!dadosConsulta) {
           setErro('Veículo não encontrado ou placa inválida.');
           return;
         }
+
+        // Verifica no banco (veiculos/{placa}) se os débitos desta placa já foram pagos.
+        // Se sim, o status do banco prevalece sobre o da consulta.
+        let dadosDetran = dadosConsulta;
+        try {
+          const pagamento = await get(ref(db, `veiculos/${dadosConsulta.placa}`));
+          if (pagamento.exists()) dadosDetran = aplicarRegularizacao(dadosConsulta);
+        } catch (pagErr) {
+          console.warn('Falha ao verificar pagamento no banco:', pagErr);
+        }
+        if (controller.signal.aborted) return;
 
         setVeiculo(dadosDetran);
         setLoading(false);
@@ -44,7 +75,7 @@ export default function DadosVeiculo() {
           placa: dadosDetran.placa,
           veiculo: `${dadosDetran.marca} ${dadosDetran.modelo}`,
           data: new Date().toISOString(),
-          situacao: `Licenciamento ${dadosDetran.licenciamento}`,
+          situacao: situacaoDoVeiculo(dadosDetran),
         }).catch((histErr) => console.warn('Falha ao salvar consulta no histórico:', histErr));
 
         setFipeLoading(true);
@@ -71,15 +102,33 @@ export default function DadosVeiculo() {
     return () => controller.abort();
   }, [placa]);
 
-  function handleRegularizarDebitos() {
-    setVeiculo((prev) => {
-      if (!prev) return null;
-      return {
-        ...prev,
+  // Chamado quando o pagamento é confirmado: atualiza a tela e grava no banco
+  async function handleRegularizarDebitos() {
+    if (!veiculo) return;
+    const regularizado = aplicarRegularizacao(veiculo);
+    setVeiculo(regularizado);
+    setErroPagamento('');
+
+    try {
+      const uid = auth.currentUser?.uid;
+      if (!uid) throw new Error('Usuário não autenticado.');
+
+      // 1) Registro global do pagamento: qualquer usuário que consultar a placa verá "Em dia"
+      await set(ref(db, `veiculos/${veiculo.placa}`), {
         licenciamento: 'Em dia',
-        multas: prev.multas.map((m) => ({ ...m, situacao: 'Paga' })),
-      };
-    });
+        multasPagas: true,
+        pagoEm: serverTimestamp(),
+        pagoPor: uid,
+      });
+
+      // 2) Atualiza a situação no histórico do usuário
+      await update(ref(db, `usuarios/${uid}/historico/${veiculo.placa}`), {
+        situacao: situacaoDoVeiculo(regularizado),
+      });
+    } catch (err) {
+      console.error('Falha ao registrar pagamento no banco:', err);
+      setErroPagamento('O pagamento foi processado, mas não conseguimos registrá-lo. Ao consultar a placa novamente, os débitos podem aparecer como pendentes.');
+    }
   }
 
   if (loading) {
@@ -176,6 +225,8 @@ export default function DadosVeiculo() {
             </div>
           )}
         </section>
+
+        {erroPagamento && <p className="aviso-pagamento" role="alert">{erroPagamento}</p>}
 
         <PlanosPagamento
           placa={veiculo.placa}

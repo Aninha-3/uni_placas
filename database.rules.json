@@ -3,7 +3,19 @@
     "usuarios": {
       "$uid": {
         ".read": "auth != null && auth.uid === $uid",
-        ".write": "auth != null && auth.uid === $uid"
+        ".write": "auth != null && auth.uid === $uid",
+        "dados": {
+          "cpf": {
+            ".validate": "!data.exists() || data.val() === '' || data.val() === newData.val()"
+          }
+        }
+      }
+    },
+    "veiculos": {
+      "$placa": {
+        ".read": "auth != null",
+        ".write": "auth != null && newData.exists()",
+        ".validate": "newData.hasChildren(['licenciamento', 'multasPagas', 'pagoEm', 'pagoPor']) && newData.child('pagoPor').val() === auth.uid"
       }
     }
   }

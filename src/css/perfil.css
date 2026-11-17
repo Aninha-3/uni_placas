@@ -202,6 +202,23 @@
   border: 1px solid #fca5a5;
 }
 
+.perfil-msg.alerta {
+  background: #fff8e6;
+  color: #8a5a00;
+  border: 1px solid #f5d38a;
+}
+
+.perfil-faltando {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #fff1cc;
+  color: #8a5a00;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .perfil-acoes-box {
   display: flex;
   align-items: center;
