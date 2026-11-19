@@ -46,6 +46,17 @@
 .badge-licenciamento.ok { background: #e0f7ef; color: #176b5b; }
 .badge-licenciamento.atrasado { background: #fce8e8; color: #b3261e; }
 
+.aviso-pagamento {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #fdf2f2;
+  color: #b3261e;
+  border: 1px solid #fca5a5;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .veiculo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
